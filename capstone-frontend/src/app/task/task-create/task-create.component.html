@@ -1,0 +1,28 @@
+<div class="task-create">
+    <h2>Create New Task</h2>
+    <form (ngSubmit)="createTask()">
+        <div>
+            <label for="title">Title:</label>
+            <input id="title" (ngModel)="task.title" name="title" required />
+        </div>
+
+        <div>
+            <label for="description">Description:</label>
+            <textarea id="description" (ngModel)="task.description" name="description"></textarea>
+        </div>
+
+        <div>
+            <label for="status">Status:</label>
+            <select id="status" (ngModel)="task.status" name="status">
+                <option *ngFor="let status of statuses" [value]="status">
+                    {{ status }}
+                </option>
+            </select>
+        </div>
+
+        <button type="submit">Create Task</button>
+        <button type="button" (click)="router.navigate(['/tasks'])">
+            Cancel
+        </button>
+    </form>
+</div>
